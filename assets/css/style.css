@@ -1,0 +1,970 @@
+/* ----- POPPINS FONT Link ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ----- VARIABLES ----- */
+:root{
+    
+    --body-color: rgb(0, 0, 0);
+    --color-white: rgb(0, 0, 0);
+
+    --text-color-second: rgb(68, 68, 68);
+    --text-color-third: rgb(30, 159, 171);
+
+    --first-color: rgb(255, 255, 255);
+    --first-color-hover: rgb(0, 201, 255);
+
+    --second-color: rgb(0, 201, 255);
+    --third-color: rgb(0, 0, 0);
+    --first-shadow-color: rgba(0, 0, 0, 0.1);
+
+}
+
+/* ----- BASE ----- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ----- SMOOTH SCROLL ----- */
+html{
+    scroll-behavior: smooth;
+}
+
+/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
+::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 25px;
+}
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #bbb;
+}
+
+
+/* ---##-- REUSABLE CSS --##--- */
+
+/* ----- GLOBAL BUTTON DESIGN ----- */
+.btn {
+    font-weight: 500;
+    padding: 12px 20px;
+    background: #efefef;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.btn>i{
+    margin-left: 10px;
+}
+.btn:hover{
+    background: var(--second-color);
+    color: var(--color-white);
+}
+
+/* ----- GLOBAL ICONS DESIGN ----- */
+i{
+    font-size: 16px;
+}
+
+/* ------- BASE -------- */
+body{
+    background: var(--body-color);
+}
+.container{
+    width: 100%;
+    position: relative;
+}
+
+/* ----- NAVIGATION BAR ----- */
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    padding-inline: 9vw;
+    transition: .3s;
+    z-index: 100;
+}
+.nav-logo{
+   position: relative;
+}
+.nav-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color-third);
+}
+.nav-logo span{
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    font-size: 5em;
+    color: var(--text-color-second);
+}
+.nav-menu, .nav_menu_list{
+    display: flex;
+}
+.nav-menu .nav_list{
+    list-style: none;
+    position: relative;
+}
+.nav-link{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
+}
+.nav-menu-btn{
+    display: none;
+}
+.nav-menu-btn i{
+    font-size: 28px;
+    cursor: pointer;
+}
+.active-link{
+    position: relative;
+    color: var(--first-color);
+    transition: .3;
+}
+.active-link::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: var(--first-color);
+    border-radius: 50%;
+}
+
+
+/* ----- WRAPPER DESIGN ----- */
+.wrapper {
+    padding-inline: clamp(10px, 10vw, 80px); /* Mantém um equilíbrio entre telas pequenas e grandes */
+    max-width: 1200px; /* Evita que o conteúdo fique muito largo */
+    margin: 0 auto; /* Centraliza a wrapper */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .wrapper {
+        padding-inline: 5vw; /* Reduz o padding lateral em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding-inline: 3vw; /* Ajuste para celulares */
+    }
+}
+
+
+/* ----- FEATURED BOX ----- */
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 700px;
+}
+
+/* ----- FEATURED TEXT BOX ----- */
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 20px;
+}
+.featured-text-card h1{
+    color: #ffffff;
+    padding: 3px 8px;
+    font-size: 20px;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Para garantir que o texto dentro do span seja centralizado */
+
+}
+.featured-name {
+    font-size: 50px; /* Tamanho padrão */
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-block: 20px;
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    .featured-name {
+        font-size: 40px; /* Reduz o tamanho da fonte */
+        margin-block: 15px; /* Ajusta o espaçamento */
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .featured-name {
+        font-size: 32px; /* Reduz ainda mais para telas pequenas */
+        margin-block: 10px; /* Ajusta o espaçamento */
+        padding: 0 10px; /* Adiciona padding lateral para melhor visualização */
+    }
+}
+
+.typedText{
+    text-transform: capitalize;
+    color: #00c9ff ;
+}
+.featured-text-info {
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: #f1f1f1;
+    text-align: center; /* Garante um alinhamento melhor em telas pequenas */
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    .featured-text-info {
+        font-size: 14px; /* Reduz levemente o tamanho da fonte */
+        margin-bottom: 25px; /* Ajusta o espaçamento */
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .featured-text-info {
+        font-size: 13px; /* Reduz um pouco mais a fonte para telas pequenas */
+        margin-bottom: 20px; /* Reduz o espaçamento inferior */
+        padding: 0 15px; /* Adiciona um pequeno padding lateral para melhor leitura */
+    }
+}
+
+.featured-text-btn {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os elementos */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os elementos quebrem linha se necessário */
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    .featured-text-btn {
+        gap: 15px; /* Reduz o espaçamento para telas menores */
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .featured-text-btn {
+        flex-direction: column; /* Empilha os elementos em telas pequenas */
+        align-items: center; /* Centraliza os itens */
+        gap: 10px; /* Reduz o espaçamento para um layout mais compacto */
+    }
+}
+
+.featured-text-btn>.blue-btn{
+    background: var(--first-color);
+    color: var(--color-white);
+}
+.featured-text-btn>.blue-btn:hover{
+    background: var(--first-color-hover);
+}
+.social_icons {
+    display: flex;
+    margin-top: 2em;
+    gap: 30px; /* Espaçamento entre os ícones */
+    justify-content: center; /* Centraliza os ícones */
+    flex-wrap: wrap; /* Permite que quebrem linha se necessário */
+}
+
+.social_icons a {
+    font-size: 24px; /* Tamanho padrão dos ícones */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social_icons a:hover {
+    transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+}
+
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+    .social_icons {
+        gap: 20px; /* Reduz o espaçamento entre os ícones */
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    .social_icons {
+        gap: 15px; /* Reduz ainda mais o espaçamento */
+        margin-top: 1.5em; /* Ajusta o espaçamento superior */
+    }
+
+    .social_icons a {
+        font-size: 20px; /* Reduz o tamanho dos ícones em telas pequenas */
+    }
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px #00c9ff;
+    cursor: pointer;
+    color: #00c9ff; /* Cor inicial do ícone */
+    transition: color 0.3s ease; /* Suaviza a transição da cor */
+}
+.icon:hover{
+    color: var(--first-color);
+}
+
+.icon-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px #ffffff;
+    cursor: pointer;
+    color: #ffffff; /* Cor inicial do ícone */
+    transition: color 0.3s ease; /* Suaviza a transição da cor */
+}
+.icon-1:hover{
+    color: #00c9ff;
+}
+
+/* ----- FEATURED IMAGE BOX ----- */
+.featured-image{
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    min-height: 80vh;
+    width: 50%;
+}
+.image{
+    margin: auto 0;
+    width: 380px;
+    height: 380px;
+    border-radius: 55% 45% 55% 45%;
+    overflow: hidden;
+    animation: imgFloat 7s ease-in-out infinite;
+}
+.image img{
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+}
+@keyframes imgFloat {
+    50%{
+        transform: translateY(10px);
+        border-radius: 45% 55% 45% 55%;
+    }
+}
+.scroll-btn {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%); /* Correção para centralizar corretamente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    gap: 5px;
+    text-decoration: none;
+    color: #000000;
+    background: #efefef;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
+ }
+ 
+ /* Ícone dentro do botão */
+ .scroll-btn i {
+     font-size: 20px;
+ }
+ 
+ /* Ajustes para telas médias */
+ @media (max-width: 768px) {
+    .scroll-btn {
+        display: flex; /* Agora aparece em telas menores */
+        width: 120px;
+        height: 45px;
+        font-size: 14px;
+        gap: 3px;
+    }
+
+    .scroll-btn i {
+        font-size: 18px;
+    }
+}
+
+/* Ajustes para telas muito pequenas (smartphones) */
+@media (max-width: 480px) {
+    .scroll-btn {
+        width: 100px;
+        height: 40px;
+        font-size: 12px;
+        gap: 2px;
+    }
+
+    .scroll-btn i {
+        font-size: 16px;
+    }
+}
+ 
+
+/* ----- MAIN BOX ----- */
+.section{
+    padding-block: 5em;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+.col{
+    display: flex;
+    width: 50%;
+}
+
+/* -- ## --- RESUABLE CSS -- ## -- */
+.top-header{
+    text-align: center;
+    margin-bottom: 5em;
+}
+.top-header h1{
+    font-weight: 600;
+    color:#ffffff;
+    margin-bottom: 11px;
+}
+.top-header span{
+    color: #999;
+}
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    color:#ffffff;
+    margin-bottom: 50px;
+}
+
+/* ----- ABOUT INFO ----- */
+.about-info{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-block: 20px 20px;
+
+    padding-inline: 20px;
+    width: 100%;
+    background:#e5e5e5;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    border-radius: 20px;
+}
+.about-info p{
+    text-align: center;
+    font-size: 18px;
+    color: #000000;
+}
+.about-btn button {
+    background: #000000;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 12px 20px; /* Ajuste do tamanho do botão */
+    font-size: 16px; /* Ajuste do tamanho da fonte */
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+    margin-top: 10px;
+}
+
+/* Responsivo: ajustes em dispositivos menores */
+@media (max-width: 768px) {
+    .about-btn button {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+        padding: 10px 18px; /* Ajusta o padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-btn button {
+        font-size: 12px; /* Ajusta ainda mais o tamanho da fonte */
+        padding: 8px 16px; /* Ajusta o padding em telas menores */
+    }
+}
+.about-btn button:hover{
+    background:#00B5E7;
+}
+
+/* ----- ABOUT / SKILLS BOX ----- */
+.skills-box{
+    margin: 10px;
+}
+.skills-header{
+    margin-bottom: 30px;
+}
+.skills-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.skills-list span{
+    font-size: 14px;
+    background: var(--first-color);
+    color: var(--color-white);
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+/* ----- PROJECTS BOX ----- */
+.project-container {
+    display: flex;
+  flex-direction: column;
+  gap: 40px; /* espaçamento entre projetos */
+}
+
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .project-container {
+        justify-content: space-around; /* Melhor espaçamento em telas médias */
+    }
+    
+    .project-box {
+        width: 45%; /* Ajusta para duas colunas */
+    }
+}
+
+@media (max-width: 768px) {
+    .project-box {
+        width: 100%; /* Ocupa toda a largura em telas menores */
+        max-width: 100%; 
+    }
+}
+
+
+.lb{
+        text-align: center; /* Centralizar o conteúdo */
+        max-width: 600px; /* Largura máxima para torná-lo responsivo */
+        margin: 0 auto; /* Centralizar horizontalmente */
+        padding: 20px;
+        border-radius: 8px;
+}
+
+
+/* ----- CONTACT BOX ----- */
+.contact-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px; /* Evita que fique muito largo em telas grandes */
+    height: auto;
+    min-height: 250px; /* Reduz a altura mínima para melhor adaptação */
+    background: var(--second-color);
+    border-radius: 10px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Títulos e textos */
+.contact-info > h2 {
+    color: var(--color-white);
+    margin-bottom: 15px;
+    font-size: 1.8rem; /* Ajusta o tamanho do título */
+}
+
+.contact-info > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--color-white);
+    margin-block: 5px;
+    font-size: 1rem; /* Ajusta a fonte para melhor leitura */
+}
+
+.contact-info p > i {
+    font-size: 18px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-info {
+        padding: 15px 20px;
+        width: 90%; /* Ocupa mais espaço na tela */
+        min-height: 200px; /* Reduz altura mínima */
+    }
+
+    .contact-info > h2 {
+        font-size: 1.5rem; /* Reduz tamanho do título */
+    }
+
+    .contact-info > p {
+        font-size: 0.9rem; /* Reduz tamanho do texto */
+    }
+
+    .contact-info p > i {
+        font-size: 16px;
+    }
+}
+
+.contact-info::after{
+    background: var(--color-white);
+}
+.contact-info:hover.contact-info h2,
+.contact-info:hover.contact-info p,
+.contact-info:hover.contact-info i{
+    color: #777;
+    z-index: 2;
+}
+
+/* ----- CONTACT FORM ----- */
+.form-control{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.form-inputs{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.input-field{
+    color:#ffffff ;
+    width: 50%;
+    height: 55px;
+    background: transparent;
+    border: 2px solid #00c9ff;
+    border-radius: 10px;
+    padding-inline: 20px;
+    outline: none;
+}
+textarea{
+    color:#ffffff ;
+    width: 100%;
+    height: 250px;
+    background: transparent;
+    border: 2px solid #00c9ff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    outline: none;
+    resize: none;
+}
+.form-button>.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+}
+.form-button>.btn:hover{
+    background: #00B5E7;
+}
+.form-button i{
+    font-size: 18px;
+    rotate: -45deg;
+}
+
+/* ----- FOOTER BOX ----- */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: #000000;
+    padding-block: 40px 60px;
+}
+.top-footer p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.middle-footer .footer-menu{
+    display: flex;
+}
+.footer_menu_list{
+    list-style: none;
+}
+.footer_menu_list a{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+.footer-social-icons{
+    display: flex;
+    gap: 30px;   
+}
+.bottom-footer{
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media only screen and (max-width: 1024px){
+    .featured-text{
+        padding: 0;
+    }
+    .image, .image img{
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
+@media only screen and (max-width: 900px) {
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        left: 0;
+    }
+    .nav-menu{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(220, 207, 207, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: .3s;
+    }
+    .nav_menu_list{
+        flex-direction: column;
+    }
+    .nav-menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .featured-box{
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+    .featured-text{
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 60vh;
+    }
+    .social_icons{
+        margin-top: 2em;
+    }
+    .featured-image{
+        order: 1;
+        justify-content: center;
+        min-height: 150px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .image, .image img{
+        width: 150px;
+        height: 150px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info, .contact-info{
+        width: 100%;
+    }
+    .project-container{
+        justify-content: center;
+    }
+    .project-box{
+        width: 100%;
+    }
+
+    .col-2{
+        width: 100%;
+    }
+
+}
+
+/* Container geral */
+.project-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 20px;
+}
+
+/* Bloco do projeto */
+.project-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Inverte a ordem para alternar */
+.project-content.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Imagem do projeto */
+.project-content img {
+  width: 40%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Texto do projeto */
+.project-text {
+  width: 50%;
+  max-width: 600px;
+  color: #ffffff; /* Ajuste conforme seu fundo */
+}
+
+.project-text h3 {
+  margin-top: 0;
+}
+
+.project-text p {
+  line-height: 1.6;
+}
+
+.project-text a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #02c5fb;
+  text-decoration: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .project-content,
+  .project-content.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-content img,
+  .project-text {
+    width: 100%;
+  }
+}
+
+
+.skills-list img {
+  max-width: 100px;
+  height: auto;
+}
+
+
+
+.skills-container > div {
+    flex: 1 1 30%; /* Os itens vão ocupar no mínimo 30% do container */
+}
+
+@media (max-width: 768px) {
+    .skills-container > div {
+        flex: 1 1 45%; /* Em telas menores, os itens vão ocupar no mínimo 45% */
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-container > div {
+        flex: 1 1 100%; /* Em telas muito pequenas, os itens ocupam 100% */
+    }
+}
+
+
+.col-md-4 {
+    width: 23%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.col-2 {
+  display: flex;
+  flex-wrap: wrap;         /* Permite quebra de linha se não couber */
+  justify-content: center; /* Centraliza na horizontal */
+  gap: 40px;               /* Espaço entre os blocos */
+}
+
+.skills-box {
+   
+    padding: 20px;
+    border-radius: 5px;
+    transition: transform 0.50s ease-in-out, box-shadow 0.50s ease-in-out;
+}
+
+.skills-header h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.skills-list span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Efeito de hover para a caixa */
+.col-md-4:hover .skills-box,
+.skills-box:hover {
+    transform: translateY(-5px);  /* Leve elevação da caixa */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+
+/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
+
+@media only screen and (max-width: 540px){
+    .featured-name{
+        font-size: 40px;
+    }
+    .project-box{
+        width: 100%;
+    }
+    .form-inputs{
+        flex-direction: column;
+    }
+    .input-field{
+        width: 100%;
+    }
+
+}
