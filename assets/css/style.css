@@ -4,18 +4,10 @@
 /* ----- VARIABLES ----- */
 :root{
     
-    --body-color: rgb(0, 0, 0);
-    --color-white: rgb(0, 0, 0);
-
-    --text-color-second: rgb(68, 68, 68);
-    --text-color-third: rgb(30, 159, 171);
-
-    --first-color: rgb(255, 255, 255);
-    --first-color-hover: rgb(0, 201, 255);
-
-    --second-color: rgb(0, 201, 255);
-    --third-color: rgb(0, 0, 0);
-    --first-shadow-color: rgba(0, 0, 0, 0.1);
+    --body-color: #0d1117; /* fundo dark moderno */
+    --text-color-second: #c9d1d9; /* texto principal */
+    --text-color-third: #58a6ff; /* destaque */
+    --second-color: #00b5e7; /* detalhes */
 
 }
 
@@ -587,7 +579,7 @@ h3{
     background: var(--second-color);
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    overflow: hidden;
+    overflow: visible;
     text-align: center;
 }
 
@@ -697,7 +689,7 @@ footer{
     align-items: center;
     flex-direction: column;
     row-gap: 30px;
-    background: #000000;
+    background: #0d1117;
     padding-block: 40px 60px;
 }
 .top-footer p{
@@ -843,15 +835,18 @@ footer{
 
 /* Imagem do projeto */
 .project-content img {
-  width: 40%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 8px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.project-content img:hover {
+  transform: scale(1.03);
 }
 
 /* Texto do projeto */
 .project-text {
-  width: 50%;
+  width: 100%;
   max-width: 600px;
   color: #ffffff; /* Ajuste conforme seu fundo */
 }
@@ -866,9 +861,17 @@ footer{
 
 .project-text a {
   display: inline-block;
+  background: #00b5e7;
+  color: #fff;
   margin-top: 10px;
-  color: #02c5fb;
+  padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.project-text a:hover {
+  background: #009ecb;
 }
 
 /* RESPONSIVO */

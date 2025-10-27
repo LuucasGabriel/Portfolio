@@ -59,7 +59,15 @@ sr.reveal('.featured-image',{delay: 300})
 
 
 /* -- PROJECT BOX -- */
-sr.reveal('.project-box',{interval: 200})
+ScrollReveal().reveal('.project-box', {
+  delay: 200,
+  duration: 800,
+  distance: '60px',
+  origin: 'bottom',
+  interval: 100, 
+  reset: true,
+  viewFactor: 0.2
+});
 
 /* -- HEADINGS -- */
 sr.reveal('.top-header',{})
