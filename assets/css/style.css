@@ -8,6 +8,9 @@
     --text-color-second: #c9d1d9; /* texto principal */
     --text-color-third: #58a6ff; /* destaque */
     --second-color: #00b5e7; /* detalhes */
+    --first-color: #00b5e7;
+    --first-shadow-color: rgba(0, 0, 0, 0.1);
+    --color-white: #ffffff;
 
 }
 
@@ -22,6 +25,8 @@
 /* ----- SMOOTH SCROLL ----- */
 html{
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ----- CHANGE THE SCROLL BAR DESIGN ----- */
@@ -81,12 +86,14 @@ nav{
     position: fixed;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 90px;
     line-height: 90px;
     padding-inline: 9vw;
     transition: .3s;
     z-index: 100;
+    background: var(--body-color);
 }
 .nav-logo{
    position: relative;
@@ -169,6 +176,7 @@ nav{
     display: flex;
     height: 100vh;
     min-height: 700px;
+    width: 100%;
 }
 
 /* ----- FEATURED TEXT BOX ----- */
@@ -345,7 +353,7 @@ nav{
 /* ----- FEATURED IMAGE BOX ----- */
 .featured-image{
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-content: center;
     min-height: 80vh;
     width: 50%;
@@ -731,6 +739,10 @@ footer{
 
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
 @media only screen and (max-width: 900px) {
+    nav {
+        padding-inline: 5vw;
+    }
+    
     .nav-button{
         display: none;
     }
@@ -744,15 +756,21 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgba(220, 207, 207, 0.7);
+        background: rgba(13, 17, 23, 0.95);
         backdrop-filter: blur(20px);
         width: 100%;
-        min-height: 450px;
-        height: 90vh;
+        min-height: 300px;
+        height: auto;
         transition: .3s;
+        z-index: 99;
     }
     .nav_menu_list{
         flex-direction: column;
+        gap: 20px;
+    }
+    .nav-link {
+        padding-inline: 0;
+        margin-inline: 0;
     }
     .nav-menu-btn{
         display: flex;
@@ -762,14 +780,15 @@ footer{
     .featured-box{
         flex-direction: column;
         justify-content: center;
-        height: 100vh;
+        height: auto;
     }
     .featured-text{
         width: 100%;
         order: 2;
         justify-content: center;
         align-content: flex-start;
-        min-height: 60vh;
+        min-height: auto;
+        padding-left: 0;
     }
     .social_icons{
         margin-top: 2em;
@@ -777,7 +796,7 @@ footer{
     .featured-image{
         order: 1;
         justify-content: center;
-        min-height: 150px;
+        min-height: auto;
         width: 100%;
         margin-top: 65px;
     }
@@ -836,6 +855,7 @@ footer{
 /* Imagem do projeto */
 .project-content img {
   width: 100%;
+  max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
@@ -847,8 +867,8 @@ footer{
 /* Texto do projeto */
 .project-text {
   width: 100%;
-  max-width: 600px;
-  color: #ffffff; /* Ajuste conforme seu fundo */
+  max-width: 500px;
+  color: #ffffff;
 }
 
 .project-text h3 {
@@ -875,43 +895,109 @@ footer{
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .project-content,
   .project-content.reverse {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .project-content img,
   .project-text {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .project-box {
+    width: 100%;
   }
 }
 
-
-.skills-list img {
-  max-width: 100px;
-  height: auto;
-}
-
-
-
-.skills-container > div {
-    flex: 1 1 30%; /* Os itens vão ocupar no mínimo 30% do container */
-}
-
-@media (max-width: 768px) {
-    .skills-container > div {
-        flex: 1 1 45%; /* Em telas menores, os itens vão ocupar no mínimo 45% */
-    }
-}
-
 @media (max-width: 480px) {
-    .skills-container > div {
-        flex: 1 1 100%; /* Em telas muito pequenas, os itens ocupam 100% */
-    }
+  .project-container {
+    gap: 30px;
+    padding: 10px;
+  }
+
+  .project-content {
+    gap: 20px;
+  }
+
+  .project-text {
+    font-size: 14px;
+  }
+
+  .project-text h3 {
+    font-size: 18px;
+  }
+
+  .project-content img {
+    max-width: 100%;
+  }
 }
 
+/* ----- SKILLS / TOOLS LAYOUT ----- */
+.skills-container{
+    display: flex;
+    justify-content: center; /* centraliza a seção horizontalmente */
+    align-items: center;
+    width: 100%;
+    padding: 10px 0 40px;
+}
+
+.skills-container > .col-2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 900px; /* limita largura geral para centralização agradável */
+}
+
+/* Cada caixa de skill terá largura fixa flexível para formar várias colunas */
+.skills-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 160px; /* tenta manter ~3-5 itens por linha conforme espaço */
+    max-width: 200px;
+    min-width: 120px;
+    padding: 12px;
+    background: transparent;
+}
+
+.skills-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-list img{
+    display: block;
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 900px){
+    .skills-box{ flex: 0 1 140px; }
+    .skills-container > .col-2{ gap: 24px; }
+}
+
+@media (max-width: 600px){
+    /* Em celulares, empilha e reduz tamanho das imagens */
+    .skills-container > .col-2{ gap: 18px; }
+    .skills-box{ flex: 0 1 45%; max-width: 45%; }
+    .skills-list img{ max-width: 90px; }
+}
+
+@media (max-width: 400px){
+    .skills-box{ flex: 0 1 100%; max-width: 100%; }
+    .skills-list img{ max-width: 80px; }
+}
 
 .col-md-4 {
     width: 23%;
@@ -919,43 +1005,7 @@ footer{
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-
-.col-2 {
-  display: flex;
-  flex-wrap: wrap;         /* Permite quebra de linha se não couber */
-  justify-content: center; /* Centraliza na horizontal */
-  gap: 40px;               /* Espaço entre os blocos */
-}
-
-.skills-box {
-   
-    padding: 20px;
-    border-radius: 5px;
-    transition: transform 0.50s ease-in-out, box-shadow 0.50s ease-in-out;
-}
-
-.skills-header h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.skills-list span {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-/* Efeito de hover para a caixa */
-.col-md-4:hover .skills-box,
-.skills-box:hover {
-    transform: translateY(-5px);  /* Leve elevação da caixa */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-
-
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
-
 @media only screen and (max-width: 540px){
     .featured-name{
         font-size: 40px;
@@ -969,5 +1019,4 @@ footer{
     .input-field{
         width: 100%;
     }
-
 }

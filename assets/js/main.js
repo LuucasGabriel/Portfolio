@@ -9,6 +9,18 @@ function myMenuFunction(){
   }
 }
 
+/* ----- CLOSE MENU WHEN CLICKING ON A LINK ----- */
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navMenu = document.getElementById('myNavMenu');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navMenu.className = 'nav-menu'; // Remove 'responsive' class
+    });
+  });
+});
+
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
 window.onscroll = function() {headerShadow()};
 
